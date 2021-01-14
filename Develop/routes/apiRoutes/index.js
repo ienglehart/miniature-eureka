@@ -11,11 +11,12 @@ router.get('/notes', (req, res) => {
 
 // post api/notes 
 router.post('/notes', (req, res) => {
-    //set id
-    req.body.id = animals.length.toString();
+    //set id, how do i send id to database?
+    req.body.id = notes.length.toString();
 
-    const newNote = createNewNote(req.body, notes);
-    res.json(note);
+    let newNote = res.body;
+    notes.push(newNote);
+    return notes;
 });
 
 //delete api/notes
