@@ -6,7 +6,10 @@ const { notes } = require('../../db/db.json')
 // get api/notes
 router.get('/notes', (req, res) => {
     let results = notes;
-    res.json(results)
+    if(req.query){
+        results = filterByQuery(req.query, results)
+    }
+    res.json(results);
 });
 
 // post api/notes 
